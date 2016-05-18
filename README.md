@@ -8,14 +8,14 @@ The sample .ino also explains how to add **Serial.printf** to your arduino code.
   * note that the DS1307 already has 56 bytes NVRAM, so not sure what to write here in 4kb!
 
 ## Calls available
-  void begin(int sda, int scl);
-  bool WriteBytes(uint16_t StartAddress,uint16_t SizeOfVar,void* ValToWrite);
-  bool WriteBytes(uint16_t StartAddress,char* ValToWrite);
-  bool RetrieveBytes(char* buf, uint16_t StorageVarSize, uint16_t StartAddress, bool ZeroTerminated);
-  void SetMemLoc(uint16_t address);
+	void begin(int sda, int scl);
+	bool WriteBytes(uint16_t StartAddress,uint16_t SizeOfVar,void* ValToWrite);
+	bool WriteBytes(uint16_t StartAddress,char* ValToWrite);
+	bool RetrieveBytes(char* buf, uint16_t StorageVarSize, uint16_t StartAddress, bool ZeroTerminated);
+	void SetMemLoc(uint16_t address);
 
 <img src="AT24C32.png">
 
-// internally organized as 256 pages of 32 bytes each
+The memory is internally organized as 256 pages of 32 bytes each. The code works with this limitation.
 
-> **WARNING:** Tthere is also **write protection** and a cycle memory reset sequence that can be called, but not implemented here
+> **IMPORTANT:** There is also **write protection** and a cycle memory reset sequence that can be called, but not implemented here
